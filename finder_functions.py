@@ -52,7 +52,10 @@ def process_videos(video_urls):
                 print(f"Video found: {url}")
                 
                 content = f"""# Final url generated
-FINAL_VIDEO = {repr(url)} """
+FINAL_VIDEO = {repr(url)}
+
+def get_final_video():
+    return FINAL_VIDEO"""
                 # Write to final_video.py
                 with open("Solutions_Finder/final_video.py", "w") as file:
                   file.write(content)
