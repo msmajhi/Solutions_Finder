@@ -51,10 +51,11 @@ def process_videos(video_urls):
             if response.headers.get('Content-Type', '').startswith('video'):
                 print(f"Video found: {url}")
                 
-                content = f"""{repr(url)}"""
-                # Write to final_video.py
-                with open("Solutions_Finder/final_video.txt", "w") as file:
-                  file.write(content)
+                
+                with open("final_video.txt", 'w') as file:
+                  file.write(url)
+
+                
             else:
                 print(f"No video found at: {url}")
         except requests.RequestException as e:
