@@ -1,8 +1,11 @@
+"""
+Run this as - $ python main.py "{question url}"
+"""
+
+import argparse
 from finder_functions import fetch_page_source, extract_details, process_videos
 
-def main():
-    url = input("Enter a URL from site 'numerade.com': ")
-    
+def main(url):
     if not "numerade.com" in url:
         print("The URL is not from this site.")
         return
@@ -16,4 +19,8 @@ def main():
         print("No video URLs found.")
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description='Process a URL from numerade.com.')
+    parser.add_argument('url', type=str, help='The URL to process')
+    args = parser.parse_args()
+    
+    main(args.url)
