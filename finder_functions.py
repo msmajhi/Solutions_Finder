@@ -38,35 +38,7 @@ def extract_details(source_code):
 
     return final_urls
 
-def download_video(url, folder="Solutions"):
-    """Download video from URL and save it with an incrementing filename."""
-    if not os.path.exists(folder):
-        os.makedirs(folder)
-
-    try:
-        response = requests.get(url, stream=True)
-        response.raise_for_status()
-
-        # Determine the file extension
-        content_type = response.headers.get('Content-Type')
-        extension = content_type.split('/')[1] if content_type else 'mp4'
-
-        # Determine the filename
-        base_filename = os.path.join(folder, f"solution_1.{extension}")
-        counter = 1
-        while os.path.exists(base_filename):
-            counter += 1
-            base_filename = os.path.join(folder, f"solution_{counter}.{extension}")
-
-        # Save the video
-        with open(base_filename, 'wb') as file:
-            for chunk in response.iter_content(chunk_size=8192):
-                file.write(chunk)
-        print(f"Downloaded and saved video as {base_filename}.")
-    except requests.RequestException as e:
-        print(f"Failed to download video from {url}: {e}")
-
-def process_videos(urls):
-    """Process the list of URLs to download videos."""
+def process_videos(video_urls):
+    """Process the list of URLs"""
     for url in urls:
-        download_video(url)
+        print(f"Video found: {url}")
