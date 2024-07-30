@@ -1,6 +1,10 @@
 from IPython.display import HTML, display
 
-def display_video(video_url):
+def display_video():
+
+    with open('final_video.txt', 'r') as file:
+        video_url = file.read()
+
     view_html = f"""
     <div style="text-align: center;">
       <video id="videoPlayer" width="640" height="360" controls>
@@ -8,21 +12,17 @@ def display_video(video_url):
         Your browser does not support the video tag.
       </video>
       <br>
-      <button onclick="document.getElementById('videoPlayer').load();" 
-              style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
-        Refresh Video
-      </button>
+      <div style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
+        <button onclick="document.getElementById('videoPlayer').load();" 
+                style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+          Refresh Video
+        </button>
+        <a href="{video_url}" target="_blank" style="text-decoration: none;">
+          <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Open in New Tab
+          </button>
+        </a>
+      </div>
     </div>
     """
     display(HTML(view_html))
-
-
-def display_button(video_url):
-    button_html = f"""
-    <a href="{video_url}" target="_blank">
-      <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
-        Open in New Tab
-      </button>
-    </a>
-    """
-    display(HTML(button_html))
