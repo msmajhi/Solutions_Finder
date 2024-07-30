@@ -39,6 +39,18 @@ def extract_details(source_code):
     return final_urls
 
 def process_videos(video_urls):
-    """Process the list of URLs"""
-    for url in urls:
-        print(f"Video found: {url}")
+    """
+    Process the list of video URLs by checking if each URL contains a video.
+    
+    Args:
+    video_urls (list): List of video URLs.
+    """
+    for url in video_urls:
+        try:
+            response = requests.head(url, allow_redirects=True)
+            if response.headers.get('Content-Type', '').startswith('video'):
+                print(f"Video found: {url}")
+            else:
+                print(f"No video found at: {url}")
+        except requests.RequestException as e:
+            print(f"Error checking {url}: {e}")
