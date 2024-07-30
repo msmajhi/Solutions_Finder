@@ -15,3 +15,14 @@ def display_video(video_url):
     </div>
     """
     display(HTML(view_html))
+
+
+def display_button(video_url):
+    button_html = f"""
+    <a href="{video_url}" target="_blank">
+      <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+        Open in New Tab
+      </button>
+    </a>
+    """
+    display(HTML(button_html))
