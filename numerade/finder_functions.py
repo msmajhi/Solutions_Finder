@@ -49,14 +49,14 @@ def process_videos(video_urls):
         try:
             response = requests.head(url, allow_redirects=True)
             if response.headers.get('Content-Type', '').startswith('video'):
-                print(f"Video found: {url}")
+                print(f"Solution found: {url}")
                 
                 
                 with open("final_video.txt", 'w') as file:
                   file.write(url)
 
-                
             else:
-                print(f"No video found at: {url}")
+                pass
+                # print(f"No video found at: {url}")
         except requests.RequestException as e:
             print(f"Error checking {url}: {e}")
