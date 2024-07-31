@@ -1,4 +1,14 @@
-from IPython.display import HTML, display
+from IPython.display import HTML, display, Markdown
+
+def display_question():
+    with open("question.txt", "r") as f:
+      text = f.read().replace('\n', '<br>')
+      
+    display(Markdown("# Question:"))
+    display(Markdown(text))
+    display(Markdown("# Solution:"))
+
+
 
 def display_video():
 
@@ -7,7 +17,7 @@ def display_video():
 
     view_html = f"""
     <div style="text-align: center;">
-      <video id="videoPlayer" width="640" height="360" controls>
+      <video id="videoPlayer" width="640" height="360" controls allowfullscreen>
         <source src="{video_url}" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -26,3 +36,7 @@ def display_video():
     </div>
     """
     display(HTML(view_html))
+
+def display_solution():
+    display_question()
+    display_video()
