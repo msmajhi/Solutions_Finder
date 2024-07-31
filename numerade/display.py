@@ -17,7 +17,7 @@ def display_video():
 
     view_html = f"""
     <div style="text-align: center;">
-      <video id="videoPlayer" width="640" height="360" controls>
+      <video id="videoPlayer" width="640" height="360" controls allowfullscreen>
         <source src="{video_url}" type="video/mp4">
         Your browser does not support the video tag.
       </video>
