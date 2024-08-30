@@ -14,7 +14,8 @@ def display_video():
         video_url = file.read().strip()
 
     if video_url:
-        print(f"Video Link: {video_url}\n\n")
+        print(f"Video Link: {video_url} \n\n")
+        
         view_html = f"""
         <div style="text-align: center;">
             <video id="videoPlayer" width="640" height="360" controls allowfullscreen>
