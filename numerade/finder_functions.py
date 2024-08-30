@@ -36,6 +36,10 @@ def extract_details(source_code):
         final_url = f"https://cdn.numerade.com/{bucket_folder}/{video_url}.mp4"
         final_urls.append(final_url)
 
+    print(f"Potential Solution Links: \n")
+    for url in final_urls:
+        print(f"{url}\n")
+        
     return final_urls
 
 def process_videos(video_urls):
