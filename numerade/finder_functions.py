@@ -56,7 +56,7 @@ def process_videos(video_urls):
                   file.write(url)
 
             else:
-                pass
-                # print(f"No video found at: {url}")
+                with open("final_video.txt", 'w') as file:
+                  file.write(video_urls[0])
         except requests.RequestException as e:
             print(f"Error checking {url}: {e}")
